@@ -39,11 +39,13 @@ public class FileUtils {
             return context.getFilesDir();
         }
     }
-    public static File getAbsoluteFile(String relativePath, Context context)     // this method will be used before android 10 for returning the file path which is recently created 
- 
-        if (Environment.MEDIA_MOUNTED.equals(Environment.getExternalStorageState())) {
+    public static File getAbsoluteFile(String relativePath, Context context)     // this method will be used before android 10 for returning the file path which is recently created
+    {
+        if (Environment.MEDIA_MOUNTED.equals(Environment.getExternalStorageState()))
+        {
             return new File(context.getExternalFilesDir(null), relativePath);
-        } else {
+        } else
+        {
             return new File(context.getFilesDir(), relativePath);
         }
     }
