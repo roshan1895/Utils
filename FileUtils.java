@@ -30,15 +30,17 @@ public class FileUtils {
             return false;
         }
     }
-    public static  File getDirectoryPath(Context context)
+    public static  File getDirectoryPath(Context context)     // this method will be used before android 10 for returning the directory path
     { // will return the directory path after checking whether  external storage is available or not
+        
         if (Environment.MEDIA_MOUNTED.equals(Environment.getExternalStorageState())) {
             return context.getExternalFilesDir(null);
         } else {
             return context.getFilesDir();
         }
     }
-    public static File getAbsoluteFile(String relativePath, Context context) {
+    public static File getAbsoluteFile(String relativePath, Context context)     // this method will be used before android 10 for returning the file path which is recently created 
+ 
         if (Environment.MEDIA_MOUNTED.equals(Environment.getExternalStorageState())) {
             return new File(context.getExternalFilesDir(null), relativePath);
         } else {
